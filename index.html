@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wesley 的 AI 实验室</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: #1e1e1e;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            border: 1px solid #333;
+        }
+        h1 { color: #007aff; margin-bottom: 10px; }
+        p { color: #a0a0a0; margin-bottom: 30px; }
+        button {
+            background-color: #007aff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover { background-color: #005bb5; }
+        #output {
+            margin-top: 20px;
+            color: #34c759;
+            font-weight: bold;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>欢迎来到 Wesley 的 AI 实验室</h1>
+        <p>目前正在研究端侧推理框架与模型量化。</p>
+        <button onclick="testMemory()">测试 27B 1-bit 模型显存</button>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function testMemory() {
+            // 简单计算：27 * 10^9 * 0.125 字节 / 1024^3
+            let params = 27 * 1_000_000_000;
+            let bytes = params * 0.125;
+            let gb = bytes / (1024**3);
+            document.getElementById('output').innerText = `计算结果：该模型大约占用 ${gb.toFixed(2)} GB 内存！`;
+        }
+    </script>
+
+</body>
+</html>
